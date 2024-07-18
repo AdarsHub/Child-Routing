@@ -1,0 +1,14 @@
+<h1 style="color:indianred">Check Product here.....</h1>
+
+<div *ngIf="loader">
+    <h2>loading.....</h2>
+</div>
+<div class="pr-display" style="border: 1px solid grey; text-align: center; padding: 10px; width: 40%;margin: auto;">
+    
+    <h1 style="color: orangered;">{{selectedProduct?.category}}</h1>
+    <img [src]="selectedProduct?.image" alt="" style="width: 100px;">
+    <p>{{selectedProduct?.description}}</p>
+    <p><strong>price:{{selectedProduct?.price}}</strong></p>
+</div>
+<button  (click)="testClose()">Close....</button>
+

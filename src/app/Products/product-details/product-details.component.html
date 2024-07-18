@@ -1,0 +1,28 @@
+<p>product-details works!</p>
+
+<div class="row mb-2">
+  <td class="col-3"><strong>ID</strong></td>
+  <td class="col-9">{{product.id}}</td>
+</div>
+<div class="row mb-2">
+  <td class="col-3"><strong>Product</strong></td>
+  <td class="col-9">{{product.product}}</td>
+</div>
+<div class="row mb-2">
+  <td class="col-3"><strong>Supplier ID</strong></td>
+  <td class="col-9">{{product.supplierId}}</td>
+</div>
+<div class="row mb-2">
+  <td class="col-3"><strong>Category ID</strong></td>
+  <td class="col-9">{{product.categoryId}}</td>
+</div>
+<div class="row mb-2">
+  <td class="col-3"><strong>Units</strong></td>
+  <td class="col-9">{{product.unit}}</td>
+</div>
+<div class="row mb-4">
+  <td class="col-3"><strong>Price</strong></td>
+  <td class="col-9">{{product.price| currency}}</td>
+</div>
+
+<button routerLink="/products" class="btn btn-sm btn-link">Back To List</button>

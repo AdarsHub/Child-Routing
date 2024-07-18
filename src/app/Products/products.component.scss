@@ -1,0 +1,78 @@
+.removeCart {
+  /* padding: 10px 10px; */
+  background-color: red;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.addedCart {
+  color: green;
+}
+
+.prdt-Btn-Div {
+  display: flex;
+  flex: wrap;
+  gap: 6px;
+}
+
+.crtBtn {
+  /* padding: 10px 10px; */
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.side-By {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  margin:auto;
+}
+
+/* Styles for product container */
+.main-Div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 800px;
+  /* Set a maximum width for the container */
+  margin: 0 auto;
+  
+  /* Center the container */
+}
+
+/* Styles for individual product */
+.product {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+}
+
+/* Styles for product image */
+.img-Parent img {
+  max-width: 100%;
+  /* Make sure the image doesn't exceed its container */
+  height: auto;
+  /* Maintain the aspect ratio */
+  border-radius: 5px;
+  /* Add some border radius to the image */
+}
+
+/* Styles for product title */
+span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Styles for product price */
+span:last-child {
+  font-weight: bold;
+  color: #2ecc71;
+}
