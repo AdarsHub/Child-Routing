@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FigletServieService } from '../Services/figlet-servie.service';
 
 @Component({
     selector: 'app-product-details',
@@ -13,7 +14,8 @@ export class ProductDetailsComponent {
     selectedProduct: any;
     param_Id: any;
     loader: boolean = false;
-    constructor(private route: ActivatedRoute, private http: HttpClient,private router:Router) {
+    styleText:any;
+    constructor(private route: ActivatedRoute, private http: HttpClient,private router:Router,private figletService:FigletServieService) {
 
         this.route.params.subscribe((param: any) => {
             console.log(param, 'Params')
@@ -37,7 +39,19 @@ export class ProductDetailsComponent {
     }
     ngOnInit() {
         // console.log(this.getProduct(this.param_Id).subscribe(res=>{console.log(res,"Filtered Res")}),"PRoduct")
+            this.figletService.stylizeText(" Angular ")
+            .subscribe(
+              data => {
+                console.log(data);
+                this.styleText = data;
+              },
+              err => {
+                console.error('Error styling text', err);
+              }
+            );
+     
     }
+  
     getProduct(id: any) {
         this.products?.forEach((val:any) => {
             if (val.id == this.param_Id) {
