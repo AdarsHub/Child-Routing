@@ -16,7 +16,7 @@ export class ProductDetailsComponent {
     loader: boolean = false;
     styleText:any;
     constructor(private route: ActivatedRoute, private http: HttpClient,private router:Router,private figletService:FigletServieService) {
-
+        console.log("%cHello, "+"World","color:white;background-color:cornflowerblue;")
         this.route.params.subscribe((param: any) => {
             console.log(param, 'Params')
             this.param_Id = param.id;
@@ -42,7 +42,7 @@ export class ProductDetailsComponent {
             this.figletService.stylizeText(" Angular ")
             .subscribe(
               data => {
-                console.log(data);
+                console.log("%c"+data,"color:white;background-color:cornflowerblue;");
                 this.styleText = data;
               },
               err => {
