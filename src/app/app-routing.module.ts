@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path:'customers',
     loadChildren:()=>import('./Customers/customer.module').then(module=>module.CustomerModule)
+  },
+  {
+    path:'chat',
+    loadChildren:()=>import('./Chat/chat.module').then(m=>m.ChatModule)
   }
 ];
 

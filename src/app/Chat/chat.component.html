@@ -1,0 +1,16 @@
+<!-- <div>
+    <app-chat-Message *ngFor="let message of messages" [message]="message"></app-chat-Message>
+    <app-chat-Input (sendMessage)="sendMessage($event)"></app-chat-Input>
+    <button (click)="clearChat()">Clear Chat</button>
+  </div> -->
+  <app-chat-User></app-chat-User>
+  <div *ngIf="currentUser">
+    <h3>Chatting as: {{ currentUser }}</h3>
+    <app-chat-Message  *ngFor="let message of messages" [message]="message"></app-chat-Message >
+    <app-chat-Input  (sendMessage)="sendMessage($event)"></app-chat-Input >
+    <button (click)="clearChat()">Clear Chat</button>
+  </div>
+  <div *ngIf="!currentUser">
+    <p>Please select a user to start chatting.</p>
+  </div>
+  

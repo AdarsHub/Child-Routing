@@ -1,0 +1,9 @@
+<div>
+    <input [(ngModel)]="username" placeholder="Enter username" />
+    <button (click)="addUser()">Add User</button>
+    <ul>
+      <li *ngFor="let user of users" (click)="selectUser(user.userId)">
+        {{ user.username }}
+      </li>
+    </ul>
+  </div>
