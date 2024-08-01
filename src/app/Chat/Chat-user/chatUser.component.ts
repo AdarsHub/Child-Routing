@@ -1,4 +1,4 @@
-import { OnInit ,Component} from "@angular/core";
+import { OnInit ,Component, EventEmitter, Output} from "@angular/core";
 import { UserService } from "../userService/user.service";
 @Component({
     selector:'app-chat-User',
@@ -7,8 +7,9 @@ import { UserService } from "../userService/user.service";
 })
 
 export class ChatUserComponent implements OnInit{
-    username: string = '';
+  username: string = '';
   users: { userId: string, username: string }[] = [];
+  @Output() selectReceiver = new EventEmitter<string>(); // Emit selected receiver ID
 
   constructor(private userService: UserService) {}
 
@@ -26,5 +27,9 @@ export class ChatUserComponent implements OnInit{
 
   selectUser(userId: string) {
     this.userService.setCurrentUser(userId);
+  }
+
+  selectChatPartner(receiverId: string) {
+    this.selectReceiver.emit(receiverId); // Emit receiver ID to parent component
   }
 }

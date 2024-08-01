@@ -13,7 +13,7 @@ export class ChatService {
 
   addMessage(senderId: string, receiverId: string, message: string) {
     const messages = this.getMessages(senderId, receiverId);
-    messages.push(message);
+    messages.push(`${senderId}: ${message}`);
     localStorage.setItem(this.getStorageKey(senderId, receiverId), JSON.stringify(messages));
   }
 

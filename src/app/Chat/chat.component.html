@@ -3,9 +3,10 @@
     <app-chat-Input (sendMessage)="sendMessage($event)"></app-chat-Input>
     <button (click)="clearChat()">Clear Chat</button>
   </div> -->
-  <app-chat-User></app-chat-User>
+  <app-chat-User (selectReceiver)="onReceiverSelected($event)"></app-chat-User>
   <div *ngIf="currentUser">
     <h3>Chatting as: {{ currentUser }}</h3>
+    <h2>{{test}}</h2>
     <app-chat-Message  *ngFor="let message of messages" [message]="message"></app-chat-Message >
     <app-chat-Input  (sendMessage)="sendMessage($event)"></app-chat-Input >
     <button (click)="clearChat()">Clear Chat</button>
@@ -13,4 +14,12 @@
   <div *ngIf="!currentUser">
     <p>Please select a user to start chatting.</p>
   </div>
-  
+  ============
+  <div>
+    <h3>Switch Users</h3>
+    <ul>
+      <li *ngFor="let user of users" (click)="switchUser(user.userId)">
+        {{ user.username }} (Switch to this user)
+      </li>
+    </ul>
+  </div>

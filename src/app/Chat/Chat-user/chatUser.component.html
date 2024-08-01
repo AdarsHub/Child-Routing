@@ -1,9 +1,14 @@
 <div>
+  <div>
     <input [(ngModel)]="username" placeholder="Enter username" />
     <button (click)="addUser()">Add User</button>
     <ul>
-      <li *ngFor="let user of users" (click)="selectUser(user.userId)">
-        {{ user.username }}
+      <li *ngFor="let user of users">
+        <span (click)="selectUser(user.userId)">
+          {{ user.username }} (Click to login)
+        </span>
+        <button (click)="selectChatPartner(user.userId)">Chat</button> <!-- Button to select chat partner -->
       </li>
     </ul>
   </div>
+  
