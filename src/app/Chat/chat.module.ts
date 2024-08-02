@@ -8,11 +8,12 @@ import { ChatService } from "./chatService/chat.service";
 import { UserService } from "./userService/user.service";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
 
 
 @NgModule({
     declarations: [ChatComponent, ChatInputComponent, ChatMessageComponent, ChatUserComponent],
-    imports: [ChatRoutingModule, FormsModule, CommonModule],
+    imports: [ChatRoutingModule, FormsModule, CommonModule,BrowserModule],
     providers: [ChatService, UserService]
 })
 export class ChatModule { }

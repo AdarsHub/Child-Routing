@@ -1,13 +1,15 @@
-import { OnInit ,Component} from "@angular/core";
+import { OnInit, Component } from "@angular/core";
 import { ChatService } from "./chatService/chat.service";
 import { UserService } from "./userService/user.service";
+import { of } from 'rxjs'
+import {map} from 'rxjs/operators'
 @Component({
-    selector:'app-chat',
-    templateUrl:'./chat.component.html',
-    styleUrls:['./chat.component.scss']
+  selector: 'app-chat',
+  templateUrl: './chat.component.html',
+  styleUrls: ['./chat.component.scss']
 })
 
-export class ChatComponent implements OnInit{
+export class ChatComponent implements OnInit {
 
   receiverId: string = '';
   users: { userId: string, username: string }[] = [];
@@ -28,7 +30,7 @@ export class ChatComponent implements OnInit{
   messages: string[] = [];
   currentUser: string | null = null;
 
-  constructor(private chatService: ChatService, private userService: UserService) {}
+  constructor(private chatService: ChatService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.currentUser$.subscribe(userId => {
@@ -64,5 +66,8 @@ export class ChatComponent implements OnInit{
       this.chatService.clearMessages(this.currentUser, this.receiverId);
       this.messages = [];
     }
+  }
+  ngrx() {
+ of(10,20,30).pipe(map((v)=>v+v)).subscribe((val)=>console.log(`updated value is ${val}`))
   }
 }
