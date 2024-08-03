@@ -30,7 +30,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 40%;
-  margin:auto;
+  margin: auto;
 }
 
 /* Styles for product container */
@@ -41,7 +41,7 @@
   max-width: 800px;
   /* Set a maximum width for the container */
   margin: 0 auto;
-  
+
   /* Center the container */
 }
 
@@ -53,6 +53,9 @@
   padding: 15px;
   width: 150px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Styles for product image */

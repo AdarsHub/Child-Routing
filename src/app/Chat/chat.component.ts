@@ -24,9 +24,13 @@ export class ChatComponent implements OnInit {
   switchUser(userId: string) {
     // Logic to switch the current user in your application
     localStorage.setItem('currentUser', userId);
-    window.location.reload(); // Refresh to simulate switching users
+    // window.location.reload();
+    this.reloadPage();
   }
-
+  reloadPage() {
+    window.location.reload();
+  }
+  
   messages: string[] = [];
   currentUser: string | null = null;
 
@@ -70,4 +74,5 @@ export class ChatComponent implements OnInit {
   ngrx() {
  of(10,20,30).pipe(map((v)=>v+v)).subscribe((val)=>console.log(`updated value is ${val}`))
   }
+  
 }

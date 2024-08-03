@@ -13,7 +13,7 @@ import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
     declarations: [ChatComponent, ChatInputComponent, ChatMessageComponent, ChatUserComponent],
-    imports: [ChatRoutingModule, FormsModule, CommonModule,BrowserModule],
+    imports: [ChatRoutingModule, FormsModule, CommonModule],
     providers: [ChatService, UserService]
 })
 export class ChatModule { }
