@@ -1,4 +1,5 @@
 // src/app/user.service.ts
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -11,8 +12,9 @@ export class UserService {
   private currentUserSubject = new BehaviorSubject<string | null>(this.getCurrentUser());
 
   currentUser$ = this.currentUserSubject.asObservable();
+  url ='https://dummyjson.com/posts';
 
-  constructor() {}
+  constructor(public http:HttpClient) {}
 
   setCurrentUser(userId: string) {
     localStorage.setItem(this.currentUserKey, userId);
@@ -40,4 +42,10 @@ export class UserService {
   private generateUniqueId(): string {
     return '_' + Math.random().toString(36).substr(2, 9);
   }
+
+  getData(){
+    return this.http.get(this.url)
+  }
+
+
 }

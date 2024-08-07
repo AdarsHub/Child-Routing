@@ -123,10 +123,24 @@ it('should call reloadPage when switchUser is called', () => {
 
   it('should call reloadPage when switchUser is called', () => {
     const userId = 'user1';
-    spyOn(component, 'reloadPage');  // Mock the reloadPage method
+    // spyOn(component, 'reloadPage');  // Mock the reloadPage method
   
     component.switchUser(userId);
   
     expect(component.reloadPage).toHaveBeenCalled();  // Verify that reloadPage was called
+  });
+  it('should reload the page when reloadPage is called', () => {
+    // Create a spy for window.location.reload by temporarily replacing the method
+    const originalReload = window.location.reload;
+    const reloadSpy = jasmine.createSpy('reload');
+    window.location.reload = reloadSpy;
+
+    component.reloadPage();
+
+    // Expect the reload method to have been called
+    expect(reloadSpy).toHaveBeenCalled();
+
+    // Restore the original method
+    window.location.reload = originalReload;
   });
 })

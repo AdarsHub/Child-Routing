@@ -22,7 +22,7 @@ export class ProductsComponent {
                 this.productData = res;
                 // Initialize addedCart property for each product
                 this.productData.forEach((product) => {
-                  console.log(typeof(product),"Type...")
+                    console.log(typeof (product), "Type...")
                     product.addedCart = false;
                     product.quantity = 0;
                 });
@@ -98,8 +98,8 @@ export class ProductsComponent {
         }
     }
 
-    goToDetails(id:number) {
-    const test={username:"admin" ,password:"admin"}
+    goToDetails(id: number) {
+        const test = { username: "admin", password: "admin" }
         this.router.navigate(['/pr-details', id],
             {
                 // skipLocationChange: true,
@@ -110,8 +110,8 @@ export class ProductsComponent {
         // let filterdUser=this.productData.filter((data:any)=>data.id==id)
         // console.log(filterdUser,"User has filtered")
     }
-    navTo(path:string){
-console.log(path,"Loadead")
-this.router.navigate(['products/offers'])
+    navTo(path: string) {
+        console.log(path, "Loadead")
+        this.router.navigate(['products/offers'])
     }
 }

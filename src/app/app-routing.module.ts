@@ -21,12 +21,15 @@ const routes: Routes = [
   {
     path:'chat',
     loadChildren:()=>import('./Chat/chat.module').then(m=>m.ChatModule)
+  },
+  {
+    path:'store',
+    loadChildren:()=>import('./Store Management/storeManager.module').then(module=>module.StoreManagerModule)
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  declarations: []
 })
   export class AppRoutingModule { }

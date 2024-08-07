@@ -4,47 +4,42 @@
   Go to Offers...
 </h1>
 <div class="side-By">
-    <div class="main-Div" *ngFor="let data of productData; let i = index">
-      <div class="product">
-        <div class="img-Parent"><img [src]="data.image" /></div>
+  <div class="main-Div" *ngFor="let data of productData; let i = index">
+    <div class="product">
+      <div class="img-Parent"><img [src]="data.image" /></div>
+      <div>
+        <span>{{ data.title }}</span>
+        <span>{{ data.price |currency}}</span>
         <div>
-          <span>{{ data.title }}</span>
-          <span>{{ data.price |currency }}</span>
-          <div>
-            <!-- <button class="removeCart"> Remove From Cart</button> -->
-            <!-- <button
+          <!-- <button class="removeCart"> Remove From Cart</button> -->
+          <!-- <button
               *ngIf="!productData[i]?.addedCart"
               (click)="addCart(i)"
               class="crtBtn"
             >
               Add To Cart
             </button> -->
-            <button (click)="goToDetails(data.id)">
-                Go to Details 
-            </button>
-            <p style="color:green" *ngIf="productData[i]?.addedCart" class="">
-              Item added to the Cart
-              <i
-                class="fa fa-check-circle"
-                style="font-size:48px;color:green"
-              ></i>
-            </p>
-            <div *ngIf="productData[i]?.addedCart == true">
-              <span>{{ data.quantity }}</span>
-              <button (click)="increaseQuantity(data)">+</button>
-              <button (click)="decreaseQuantity(data)">-</button>
-              <span *ngIf="data.quantity > 0"
-                >Total:{{ data.quantity * data.price | json }}</span
-              >
-            </div>
+          <button (click)="goToDetails(data.id)">
+            Go to Details
+          </button>
+          <p style="color:green" *ngIf="productData[i]?.addedCart" class="">
+            Item added to the Cart
+            <i class="fa fa-check-circle" style="font-size:48px;color:green"></i>
+          </p>
+          <div *ngIf="productData[i]?.addedCart == true">
+            <span>{{ data.quantity }}</span>
+            <button (click)="increaseQuantity(data)">+</button>
+            <button (click)="decreaseQuantity(data)">-</button>
+            <span *ngIf="data.quantity > 0">Total:{{ data.quantity * data.price | json }}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 <div>
   <a routerLink="groceries">Groceries.....</a>
 
 </div>
-  <!-- <button (click)="testNav()">Details</button> -->
-  <router-outlet></router-outlet>
+<!-- <button (click)="testNav()">Details</button> -->
+<router-outlet></router-outlet>

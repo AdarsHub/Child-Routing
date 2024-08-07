@@ -16,7 +16,7 @@ const route: Routes = [
                 path: 'groceries',
                 component: GroceryComponent,
             },
-            
+
         ]
     },
     {
@@ -33,7 +33,7 @@ const route: Routes = [
             }
         ]
     }
-  
+
 ]
 @NgModule({
     imports: [RouterModule.forChild(route)],

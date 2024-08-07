@@ -13,7 +13,7 @@ describe('CustomerDetailsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [CustomerComponent],
       providers: [
-        {
+        { 
           provide: ActivatedRoute,
           useValue: {
             params: of({ id: 101 })
