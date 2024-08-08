@@ -1,11 +1,14 @@
 import { createReducer, on } from "@ngrx/store";
-import { data, decrement, double, getData, increment, reset } from "./actions";
+import { data, decrement, double, getData, increment, productsCall, productsData, reset } from "./actions";
 
 
 const initialCount = 0;
 
 const testdata={
     arr:[]
+}
+const productData={
+    products:[]
 }
 
 export const CounterReducer = createReducer(initialCount,
@@ -18,3 +21,5 @@ export const CounterReducer = createReducer(initialCount,
 
 
 export const ApiCallData=createReducer(testdata,on(data,(val:any,action:any)=>({...val,arr:action.data})))
+
+export const ProductsDataReducer=createReducer(productData,on(productsData,(val:any,action:any)=>({...val,products:action.products})))

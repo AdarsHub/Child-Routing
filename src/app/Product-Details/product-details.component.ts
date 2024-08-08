@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FigletServieService } from '../Services/figlet-servie.service';
+import { UserService } from '../Chat/userService/user.service';
 
 @Component({
     selector: 'app-product-details',
@@ -15,7 +16,7 @@ export class ProductDetailsComponent {
     param_Id: any;
     loader: boolean = false;
     styleText:any;
-    constructor(private route: ActivatedRoute, private http: HttpClient,private router:Router,private figletService:FigletServieService) {
+    constructor(private route: ActivatedRoute, private http: HttpClient,private router:Router,private figletService:FigletServieService,private userService:UserService) {
         console.log("%cHello, "+"World","color:white;background-color:cornflowerblue;")
         this.route.params.subscribe((param: any) => {
             console.log(param, 'Params')
@@ -30,11 +31,23 @@ export class ProductDetailsComponent {
             // }, 1000);
 
         })
-        this.http.get('https://fakestoreapi.com/products').subscribe((res: any) => {
-            console.log(res, "111")
-            this.products = res;
+        // this.http.get('https://fakestoreapi.com/products').subscribe((res: any) => {
+        //     console.log(res, "111")
+        //     this.products = res;
+        //     this.getProduct(this.param_Id)
+        // })
+        this.userService.productList.subscribe((res)=>{console.log(res,"line 37");
+            // this.products= JSON.parse(JSON.stringify(res?.products));
+            this.products = res.products;
             this.getProduct(this.param_Id)
-        })
+                    // Initialize addedCart property for each product
+                    // this.products.forEach((product) => {
+                    //     console.log(typeof (product), "Type...")
+                    //     product.addedCart = false;
+                    //     product.quantity = 0;
+                    // });
+          })
+
 
     }
     ngOnInit() {

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { productsCall } from '../Store Management/Store/actions';
+import { UserService } from '../Chat/userService/user.service';
+import { map } from 'rxjs/operators';
 @Component({
     selector: 'app-products',
     templateUrl: './products.component.html',
@@ -13,20 +17,34 @@ export class ProductsComponent {
     cartItems: any[] = [];
     id = 1;
 
-    constructor(private httpClient: HttpClient, private router: Router) { }
+    constructor(private httpClient: HttpClient, private router: Router,private store:Store,private userService:UserService) { }
 
     ngOnInit() {
-        this.httpClient
-            .get('https://fakestoreapi.com/products')
-            .subscribe((res) => {
-                this.productData = res;
-                // Initialize addedCart property for each product
-                this.productData.forEach((product) => {
-                    console.log(typeof (product), "Type...")
-                    product.addedCart = false;
-                    product.quantity = 0;
-                });
-            });
+        this.button();
+        this.userService.storeProducts();
+        // this.httpClient
+        //     .get('https://fakestoreapi.com/products')
+        //     .subscribe((res) => {
+        //         this.productData = res;
+        //         // Initialize addedCart property for each product
+        //         this.productData.forEach((product) => {
+        //             console.log(typeof (product), "Type...")
+        //             product.addedCart = false;
+        //             product.quantity = 0;
+        //         });
+        //     });
+    
+          this.userService.productList.subscribe((res)=>{console.log(res,"line 37");
+            // this.productData= JSON.parse(JSON.stringify(res?.products));
+            this.productData = res.products;
+                    // Initialize addedCart property for each product
+                    // this.productData.forEach((product) => {
+                    //     console.log(typeof (product), "Type...")
+                    //     product.addedCart = false;
+                    //     product.quantity = 0;
+                    // });
+          })
+        
     }
 
     getProducts() {
@@ -41,6 +59,7 @@ export class ProductsComponent {
     }
 
     addCart(index: any) {
+        
         const selectedProduct = this.productData[index];
         selectedProduct.quantity = 1;
         if (!selectedProduct.addedCart) {
@@ -109,9 +128,14 @@ export class ProductsComponent {
         )
         // let filterdUser=this.productData.filter((data:any)=>data.id==id)
         // console.log(filterdUser,"User has filtered")
+       
     }
     navTo(path: string) {
         console.log(path, "Loadead")
         this.router.navigate(['products/offers'])
+    }
+
+    button(){
+        this.store.dispatch(productsCall());
     }
 }
