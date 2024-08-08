@@ -35,7 +35,7 @@ export class StoreComponent implements OnInit {
         this.store.dispatch(getData());
         this.store.dispatch(increment());
         let data:any[]=[];
-        this.data.subscribe((res: any) => { data = res.arr.posts });
+        this.data.subscribe((res: any) => { data = res?.arr?.posts });
 
         setTimeout(() => {
             data = JSON.parse(JSON.stringify(data));
