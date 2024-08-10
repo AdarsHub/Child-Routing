@@ -22,17 +22,17 @@ export class ProductsComponent {
     ngOnInit() {
         this.button();
         this.userService.storeProducts();
-        // this.httpClient
-        //     .get('https://fakestoreapi.com/products')
-        //     .subscribe((res) => {
-        //         this.productData = res;
-        //         // Initialize addedCart property for each product
-        //         this.productData.forEach((product) => {
-        //             console.log(typeof (product), "Type...")
-        //             product.addedCart = false;
-        //             product.quantity = 0;
-        //         });
-        //     });
+        this.httpClient
+            .get('https://fakestoreapi.com/products')
+            .subscribe((res) => {
+                this.productData = res;
+                // Initialize addedCart property for each product
+                this.productData.forEach((product) => {
+                    console.log(typeof (product), "Type...")
+                    product.addedCart = false;
+                    product.quantity = 0;
+                });
+            });
     
           this.userService.productList.subscribe((res)=>{console.log(res,"line 37");
             // this.productData= JSON.parse(JSON.stringify(res?.products));
