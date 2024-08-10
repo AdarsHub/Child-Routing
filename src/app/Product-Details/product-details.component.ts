@@ -17,7 +17,7 @@ export class ProductDetailsComponent {
     loader: boolean = false;
     styleText:any;
     constructor(private route: ActivatedRoute, private http: HttpClient,private router:Router,private figletService:FigletServieService,private userService:UserService) {
-        console.log("%cHello, "+"World","color:white;background-color:cornflowerblue;")
+        console.log("%cHello, "+"World","color:white;background-color:cornflowerblue;");
         this.route.params.subscribe((param: any) => {
             console.log(param, 'Params')
             this.param_Id = param.id;
