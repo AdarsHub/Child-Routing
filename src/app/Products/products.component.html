@@ -6,7 +6,12 @@
 <div class="side-By">
   <div class="main-Div" *ngFor="let data of productData; let i = index">
     <div class="product">
-      <div class="img-Parent"><img [src]="data.image" /></div>
+      <div class="img-Parent">
+        <img [src]="data.image" />
+        <!-- ===== this text helps us to get the image size  when the image is loading   ===== -->
+        <!-- <img (load)="onImageLoad($event)" [src]="data.image" id="test" #image style="height: 150px; width: 150px;" /> -->
+
+      </div>
       <div>
         <span>{{ data.title }}</span>
         <span>{{ data.price |currency}}</span>
