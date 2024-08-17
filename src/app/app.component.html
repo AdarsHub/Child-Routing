@@ -1,14 +1,7 @@
-<div class="container">
-    <button routerLink="/home" class="btn btn-sm btn-link">Home11</button>
-    <button routerLink="/customers" class="btn btn-sm btn-link">Customer</button>
-    <button routerLink="/products" class="btn btn-sm btn-link">Products</button>
-    <hr />
-    
-    <h1 routerLink="/chat" style="color: blue;text-decoration: underline;cursor: pointer;">lets Chat</h1>
+<!-- <router-outlet></router-outlet> -->
+<div *ngIf="isLoader" class="loadCenter">
+    <div class="loader"></div>
+</div>
 
-    <h1 routerLink="/store" style="cursor: pointer;" >Go To Store....</h1>
-    <button routerLink="/store" style="cursor: pointer;" >Go To Store....</button>
-    <router-outlet></router-outlet>
-    </div>
-    <div class="animate"></div>
-    
+
+    <router-outlet *ngIf="!isLoader"></router-outlet>

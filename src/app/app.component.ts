@@ -7,7 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular11-app';
+  isLoader=true;
   ngOnInit(){
-    
+    setTimeout(() => {
+      this.isLoader=false;
+    }, 2000);
   }
 }

@@ -16,3 +16,46 @@
 //  75%{background-color: orangered; left: 0px; top:200px}
 //  100% {background-color: red; left :0px; top:0px;}
 // }
+.loadCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.loader {
+    border: 18px solid green;
+    border-right: 18px solid white;
+    // border-left: 18px solid green;
+    // border-top: 18px solid blue;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

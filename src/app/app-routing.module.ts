@@ -4,27 +4,28 @@ import { ProductDetailsComponent } from './Product-Details/product-details.compo
 
 const routes: Routes = [
   {
-    path:'products',
-    loadChildren:()=>import('./Products/products.module').then(module=>module.ProductsModule),
+    path: 'products',
+    loadChildren: () => import('./Products/products.module').then(module => module.ProductsModule),
   },
   {
-    path:'home',
-    loadChildren:()=>import('./Home/home.module').then(m=>m.HomeComponentModule)
-  },{
-    path:'pr-details/:id',
-    component:ProductDetailsComponent
+    path: '',
+    loadChildren: () => import('./Home/home.module').then(m => m.HomeComponentModule)
   },
   {
-    path:'customers',
-    loadChildren:()=>import('./Customers/customer.module').then(module=>module.CustomerModule)
+    path: 'customers',
+    loadChildren: () => import('./Customers/customer.module').then(module => module.CustomerModule)
   },
   {
-    path:'chat',
-    loadChildren:()=>import('./Chat/chat.module').then(m=>m.ChatModule)
+    path: 'chat',
+    loadChildren: () => import('./Chat/chat.module').then(m => m.ChatModule)
   },
   {
-    path:'store',
-    loadChildren:()=>import('./Store Management/storeManager.module').then(module=>module.StoreManagerModule)
+    path: 'store',
+    loadChildren: () => import('./Store Management/storeManager.module').then(module => module.StoreManagerModule)
+  },
+  {
+    path: 'pr-details/:id',
+    component: ProductDetailsComponent
   }
 ];
 
@@ -32,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-  export class AppRoutingModule { }
+export class AppRoutingModule { }
