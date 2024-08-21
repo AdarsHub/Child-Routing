@@ -9,10 +9,12 @@ import { StoreModule } from '@ngrx/store';
 import { ApiCallData, CounterReducer, ProductsDataReducer } from './Store Management/Store/reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { futureSelector } from './Store Management/Store/effects';
+import { ProductDetailsComponent } from './Product-Details/product-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
