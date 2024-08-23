@@ -1,0 +1,43 @@
+<!--
+<table>
+    <tr>
+        <th>S/NO</th>
+        <th>NAME</th>
+        <th>ID</th>
+        <th>PRICE</th>
+    </tr>
+   <tbody>
+    <tr *ngFor="let dtls of loopData;let indx=index" style="border: 1px sold grey;">
+        <ng-container *ngIf="dtls">
+            <td>{{indx+1}}</td>
+            <td>{{dtls.title}}</td>
+            <td>{{dtls.id}}</td>
+            <td>{{dtls.price}}</td>
+        </ng-container>
+       
+    </tr>
+   </tbody>
+</table> -->
+<div>
+    <div class="cartItems-Parent">
+        <ng-container *ngFor="let dtls of loopData; let indx = index">
+          <div class="product-Div">
+            <div class="close-Parent">
+                <span><i class="fa fa-close close-Icon" (click)="removeFromBag(dtls)"></i></span>
+            </div>
+            <div class="image-container">
+              <img [src]="dtls.image" alt="{{dtls.title}}">
+            </div>
+            <div class="info-container">
+              <span class="product-title">{{dtls.title}}</span>
+              <span class="product-price">{{dtls.price.toFixed(2)|currency}}</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="cart-Actions">
+        <button (click)="buy()">Buy now...</button>
+        <button>Move to <i class="fa fa-heart" style="font-size:35px;color:red"></i>
+        </button>
+    </div>
+</div>

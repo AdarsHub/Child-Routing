@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FigletServieService } from '../Services/figlet-servie.service';
 import { UserService } from '../Chat/userService/user.service';
+import { CartService } from '../Services/Cart-Service/cart.service';
 
 @Component({
     selector: 'app-product-details',
@@ -16,7 +17,11 @@ export class ProductDetailsComponent {
     param_Id: any;
     loader: boolean = false;
     styleText: any;
-    constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private figletService: FigletServieService, private userService: UserService) {
+    detailsArr:any=["Adarsh","22","Male"]
+
+    addedCart: boolean =false;
+    constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private figletService: FigletServieService,
+         private userService: UserService,private cartService:CartService) {
         console.log("%cHello, " + "World", "color:white;background-color:cornflowerblue;");
         this.route.params.subscribe((param: any) => {
             console.log(param, 'Params')
@@ -80,5 +85,13 @@ export class ProductDetailsComponent {
     }
     testClose() {
         this.router.navigate(['/products'])
+    }
+    addToBag(prod:any){
+        this.addedCart=true;
+        this.cartService.addToCart(prod);
+        setTimeout(() => {
+           this.addedCart=false; 
+           this.router.navigate(['/cart'])
+        }, 3000);
     }
 }

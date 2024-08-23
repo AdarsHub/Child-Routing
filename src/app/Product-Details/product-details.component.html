@@ -5,12 +5,50 @@
 <div *ngIf="loader">
     <h2>loading.....</h2>
 </div>
-<div class="pr-display" style="border: 1px solid grey; text-align: center; padding: 10px; width: 40%;margin: auto;">
+<!-- <div class="pr-display" style="border: 1px solid grey; text-align: center; padding: 10px; width: 40%;margin: auto;">
     
     <h1 style="color: orangered;">{{selectedProduct?.category}}</h1>
     <img [src]="selectedProduct?.image" alt="" style="width: 100px;">
     <p>{{selectedProduct?.description}}</p>
     <p><strong>price:{{selectedProduct?.price}}</strong></p>
+    
+
+<div *ngIf="addedCart">
+    <p> <i class="fa fa-check-circle" style="font-size:48px;color:green; animation: pulse 1s ease-in-out;"></i></p>
+    <p style="color:green" class="">
+    Item Added to Cart
+        
+      </p>
 </div>
-<button  (click)="testClose()">Close....</button>
+    <div class="action-Section">
+        <button mat-button color="primary" (click)="addToBag(selectedProduct)">
+            Add To Bag
+        </button>
+        <button mat-button color="warn">
+            Back To products
+        </button>
+    </div>
+</div> -->
+<div class="pr-display">
+    <h1 class="category-title">{{selectedProduct?.category}}</h1>
+    <img [src]="selectedProduct?.image" alt="{{selectedProduct?.title}}" class="product-image">
+    <p class="product-description">{{selectedProduct?.description}}</p>
+    <p class="product-price"><strong>Price: {{selectedProduct?.price.toFixed(2)|currency}}</strong></p>
+  
+    <div *ngIf="addedCart" class="cart-message">
+      <i class="fa fa-check-circle"></i>
+      <p>Item Added to Cart</p>
+    </div>
+  
+    <div class="action-section">
+      <button mat-button color="primary" (click)="addToBag(selectedProduct)">
+        Add To Bag
+      </button>
+      <button mat-button color="warn" (click)="testClose()">
+        Back To Products
+      </button>
+    </div>
+  </div>
+  
+
 

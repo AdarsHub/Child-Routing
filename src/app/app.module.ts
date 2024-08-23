@@ -10,6 +10,7 @@ import { ApiCallData, CounterReducer, ProductsDataReducer } from './Store Manage
 import { EffectsModule } from '@ngrx/effects';
 import { futureSelector } from './Store Management/Store/effects';
 import { ProductDetailsComponent } from './Product-Details/product-details.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ProductDetailsComponent } from './Product-Details/product-details.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatButtonModule,
     FormsModule,
     StoreModule.forRoot({ count: CounterReducer,testApi:ApiCallData,products:ProductsDataReducer }),
     EffectsModule.forRoot([futureSelector])

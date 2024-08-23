@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'pr-details/:id',
     component: ProductDetailsComponent
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./Cart-Folder/cart.module').then((m) => m.CartModule)
   }
 ];
 

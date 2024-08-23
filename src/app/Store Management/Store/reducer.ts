@@ -4,11 +4,11 @@ import { data, decrement, double, getData, increment, productsCall, productsData
 
 const initialCount = 0;
 
-const testdata={
-    arr:[]
+const testdata = {
+    arr: []
 }
-const productData={
-    products:[]
+const productData = {
+    products: []
 }
 
 export const CounterReducer = createReducer(initialCount,
@@ -20,6 +20,6 @@ export const CounterReducer = createReducer(initialCount,
 )
 
 
-export const ApiCallData=createReducer(testdata,on(data,(val:any,action:any)=>({...val,arr:action.data})))
+export const ApiCallData = createReducer(testdata, on(data, (val: any, action: any) => ({ ...val, arr: action.data })))
 
-export const ProductsDataReducer=createReducer(productData,on(productsData,(val:any,action:any)=>({...val,products:action.products})))
+export const ProductsDataReducer = createReducer(productData, on(productsData, (val: any, action: any) => ({ ...val, products: action.products })))

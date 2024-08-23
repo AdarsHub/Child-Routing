@@ -55,6 +55,7 @@ export class ChatComponent implements OnInit {
   loadMessages() {
     if (this.currentUser && this.receiverId) {
       this.messages = this.chatService.getMessages(this.currentUser, this.receiverId);
+      console.log(this.messages,"1111")
     }
   }
 
