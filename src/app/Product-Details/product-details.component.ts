@@ -17,11 +17,14 @@ export class ProductDetailsComponent {
     param_Id: any;
     loader: boolean = false;
     styleText: any;
-    detailsArr:any=["Adarsh","22","Male"]
+    detailsArr: any = ["Adarsh", "22", "Male"]
 
-    addedCart: boolean =false;
+    addedCart: boolean = false;
+    checkProduct: any;
+    productSelected: boolean = false;
+
     constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private figletService: FigletServieService,
-         private userService: UserService,private cartService:CartService) {
+        private userService: UserService, private cartService: CartService) {
         console.log("%cHello, " + "World", "color:white;background-color:cornflowerblue;");
         this.route.params.subscribe((param: any) => {
             console.log(param, 'Params')
@@ -76,22 +79,33 @@ export class ProductDetailsComponent {
     }
 
     getProduct(id: any) {
+        this.checkProduct = JSON.parse(localStorage.getItem("details"));
         this.products?.forEach((val: any) => {
             if (val.id == this.param_Id) {
                 this.selectedProduct = val;
-                console.log(this.selectedProduct, 'The Product u have selected...')
+                this.checkProduct.forEach((value, ind) => {
+                    if (value.id == this.param_Id) {
+                        this.productSelected = true;
+                    }
+                })
+
+                // console.log(this.selectedProduct, 'The Product u have selected...')
             }
         })
     }
     testClose() {
         this.router.navigate(['/products'])
     }
-    addToBag(prod:any){
-        this.addedCart=true;
+    addToBag(prod: any) {
+        
+        this.addedCart = true;
         this.cartService.addToCart(prod);
         setTimeout(() => {
-           this.addedCart=false; 
-           this.router.navigate(['/cart'])
+            this.addedCart = false;
+            this.router.navigate(['/cart'])
         }, 3000);
+    }
+    goToCart(selectedProduct){
+        this.router.navigate(['/cart'])
     }
 }

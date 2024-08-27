@@ -18,7 +18,7 @@
     </tr>
    </tbody>
 </table> -->
-<div>
+<div *ngIf="loopData.length">
     <div class="cartItems-Parent">
         <ng-container *ngFor="let dtls of loopData; let indx = index">
           <div class="product-Div">
@@ -32,12 +32,27 @@
               <span class="product-title">{{dtls.title}}</span>
               <span class="product-price">{{dtls.price.toFixed(2)|currency}}</span>
             </div>
+            <div class="action-Buttons">
+              <div>
+                <button (click)="increaseQuantity(dtls,indx)">Increase</button>
+              </div>
+              <div>
+                <span>{{dtls.quantity}}</span>
+              </div> <div>
+                <button (click)="decreaseQuantity(dtls,indx)">{{dtls.quantity>1?"Decrease":"Remove"}}</button>
+              </div>
+            </div>
           </div>
         </ng-container>
       </div>
-      <div class="cart-Actions">
+      <div  class="cart-Actions" >
         <button (click)="buy()">Buy now...</button>
-        <button>Move to <i class="fa fa-heart" style="font-size:35px;color:red"></i>
+        <button>wishlist
+           <!-- <i class="fa fa-heart" style="font-size:35px;color:red"></i> -->
         </button>
     </div>
+</div>
+<div *ngIf="!loopData.length" class="empty-Cart">
+  <h3 >No items in the Cart</h3>
+
 </div>

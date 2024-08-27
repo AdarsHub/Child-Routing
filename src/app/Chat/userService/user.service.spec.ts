@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { UserService } from "./user.service"
-
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { provideMockStore } from '@ngrx/store/testing';
 
 
 describe("UserService", () => {
@@ -8,7 +9,11 @@ describe("UserService", () => {
     let fixture: ComponentFixture<UserService>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+        TestBed.configureTestingModule({
+            imports: [HttpClientTestingModule], 
+            providers: [provideMockStore({})],
+
+        });
         service = TestBed.inject(UserService);
         localStorage.clear(); // Clear localStorage before each test
     });

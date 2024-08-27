@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./Products/products.module').then(module => module.ProductsModule),
   },
   {
-    path: '',
+    path: 'Home',
     loadChildren: () => import('./Home/home.module').then(m => m.HomeComponentModule)
   },
   {
@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'cart',
     loadChildren: () => import('./Cart-Folder/cart.module').then((m) => m.CartModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./Login/login.module').then((module) => module.LoginModule)
   }
 ];
 

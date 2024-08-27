@@ -124,7 +124,17 @@ export class ProductsComponent {
     }
 
     goToDetails(id: number) {
-        const test = { username: "admin", password: "admin" }
+        const test = { username: "admin", password: "admin" };
+        const items=JSON.parse(localStorage.getItem('details'));
+        console.log(items,"111");
+        items.forEach((val,ind)=>{
+            if(val.id===id){
+            //   items.quantity=
+            }
+            else{
+
+            }
+        })
         this.router.navigate(['/pr-details', id],
             {
                 // skipLocationChange: true,

@@ -4,6 +4,8 @@ import { UserService } from "./userService/user.service";
 import { ChatService } from "./chatService/chat.service";
 import { of } from "rxjs";
 import { ChatModule } from "./chat.module";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { provideMockStore } from '@ngrx/store/testing';
 describe("ChatComponent", () => {
 
     let component: ChatComponent;
@@ -29,11 +31,13 @@ describe("ChatComponent", () => {
 
         await TestBed.configureTestingModule({
             declarations: [ChatComponent],
-            imports:[ChatModule],
+            imports:[ChatModule,HttpClientTestingModule],
             providers: [{ provide: UserService, userValue: mockUserService },
             {
                 provide: ChatService, userValue: mockChatService
-            }
+            },
+            provideMockStore({})
+            
             ]
         }).compileComponents();
     })
@@ -131,7 +135,7 @@ it('should call reloadPage when switchUser is called', () => {
   });
   it('should reload the page when reloadPage is called', () => {
     // Create a spy for window.location.reload by temporarily replacing the method
-    const originalReload = window.location.reload;
+    spyOn(window.location, 'reload').and.callFake(function(){});
     const reloadSpy = jasmine.createSpy('reload');
     window.location.reload = reloadSpy;
 
@@ -141,6 +145,6 @@ it('should call reloadPage when switchUser is called', () => {
     expect(reloadSpy).toHaveBeenCalled();
 
     // Restore the original method
-    window.location.reload = originalReload;
+    //window.location.reload = originalReload;
   });
 })

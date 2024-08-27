@@ -1,0 +1,41 @@
+
+
+  <div class="main-Parent">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%; background-color: rgba(255, 255, 255, 0.9); border-radius: 15px;">
+          <h2 class="text-center mb-4">Sign in here...</h2>
+          <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+            <div class="form-group mb-3">
+              <label for="name">User_Name</label>
+              <input type="text" id="name" class="form-control" formControlName="userName" placeholder="Enter your name" />
+              <div *ngIf="userForm.get('userName')?.invalid" class="text-danger error-text">
+                <span *ngIf="userForm.get('userName')?.invalid && userForm.get('userName')?.touched">
+                  Name is required
+                </span>
+              </div>
+            </div>
+            <!-- <div class="form-group mb-3">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter your email" />
+              <div *ngIf="userForm.get('email')?.invalid" class="text-danger error-text">
+                <span *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                  Enter a valid email
+                </span>
+              </div>
+            </div> -->
+            <div class="form-group mb-3">
+              <label for="password">Password</label>
+              <input type="password" id="password" class="form-control" formControlName="password" placeholder="Enter your password" />
+              <div *ngIf="userForm.get('password')?.invalid" class="text-danger error-text">
+                <span *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+                  Password is required
+                </span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="userForm.invalid" style="background-color: #007bff; border-color: #007bff;">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+  </div>

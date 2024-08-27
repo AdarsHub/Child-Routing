@@ -1,0 +1,32 @@
+.form-control {
+    border-radius: 10px;
+  }
+
+  .btn-primary {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 300px !important;
+  }
+  .error-text {
+    font-size: 12px;
+  }
+  .main-Parent{
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0; 
+  }

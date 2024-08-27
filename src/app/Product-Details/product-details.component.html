@@ -41,12 +41,22 @@
     </div>
   
     <div class="action-section">
-      <button mat-button color="primary" (click)="addToBag(selectedProduct)">
-        Add To Bag
-      </button>
-      <button mat-button color="warn" (click)="testClose()">
+      <ng-container *ngIf="!addedCart">
+        <button mat-button color="primary" (click)="addToBag(selectedProduct)">
+          Add To Bag
+        </button>
+        </ng-container>
+   
+      <ng-container *ngIf="productSelected">
+        <button mat-button color="primary" (click)="goToCart(selectedProduct)">
+          Go To Cart
+         </button>
+      </ng-container>
+     
+      <button *ngIf="!addedCart" mat-button color="warn" (click)="testClose()">
         Back To Products
       </button>
+
     </div>
   </div>
   
