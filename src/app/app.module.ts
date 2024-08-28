@@ -10,7 +10,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { futureSelector } from './Store Management/Store/effects';
 import { ProductDetailsComponent } from './Product-Details/product-details.component';
 import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { LoderModule } from './loder/loder.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import {MatFormFieldModule} from '@angular/material/form-field'
     StoreModule.forRoot({ count: CounterReducer,testApi:ApiCallData,products:ProductsDataReducer }),
     EffectsModule.forRoot([futureSelector]),
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    LoderModule
     
   ],
   providers: [],

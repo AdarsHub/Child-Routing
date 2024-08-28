@@ -22,6 +22,7 @@ export class ProductDetailsComponent {
     addedCart: boolean = false;
     checkProduct: any;
     productSelected: boolean = false;
+    isLoader: any;
 
     constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private figletService: FigletServieService,
         private userService: UserService, private cartService: CartService) {
@@ -108,4 +109,8 @@ export class ProductDetailsComponent {
     goToCart(selectedProduct){
         this.router.navigate(['/cart'])
     }
+    loder(e){
+        console.log(e,"Data Received from the parent")
+        this.isLoader=e;
+      }
 }

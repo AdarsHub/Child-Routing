@@ -6,6 +6,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { CartService } from "../Services/Cart-Service/cart.service";
 import { BuyNowComponent } from "./buyNow/buynow.component";
 import { FormsModule } from "@angular/forms";
+import { LoderModule } from "../loder/loder.module";
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from "@angular/forms";
     imports: [
         CartRoutingModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        LoderModule
     ],
     providers: [CartService]
 })

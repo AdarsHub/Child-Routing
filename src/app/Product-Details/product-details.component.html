@@ -1,10 +1,12 @@
+
+<!-- <app-loder (load)="loder($event)"></app-loder> -->
+<ng-container>
+
+</ng-container>
 <div style="white-space: pre; font-family: monospace; font-size: 12px; line-height: 1.2; background-color:black; color: white; text-align: center; width: 30%;margin:auto">
     {{ styleText }}
   </div>
 <h1 style="color:indianred">Check Product here.....</h1>
-<div *ngIf="loader">
-    <h2>loading.....</h2>
-</div>
 <!-- <div class="pr-display" style="border: 1px solid grey; text-align: center; padding: 10px; width: 40%;margin: auto;">
     
     <h1 style="color: orangered;">{{selectedProduct?.category}}</h1>
@@ -29,7 +31,8 @@
         </button>
     </div>
 </div> -->
-<div class="pr-display">
+
+<div *ngIf="!isLoader" class="pr-display">
     <h1 class="category-title">{{selectedProduct?.category}}</h1>
     <img [src]="selectedProduct?.image" alt="{{selectedProduct?.title}}" class="product-image">
     <p class="product-description">{{selectedProduct?.description}}</p>
@@ -43,7 +46,7 @@
     <div class="action-section">
       <ng-container *ngIf="!addedCart">
         <button mat-button color="primary" (click)="addToBag(selectedProduct)">
-          Add To Bag
+          Add To Bag   <span class="glyphicon">&#xe116;</span>
         </button>
         </ng-container>
    

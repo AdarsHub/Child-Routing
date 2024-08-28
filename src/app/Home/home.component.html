@@ -1,14 +1,16 @@
 
 <div class="container">
-   <h2>{{greetingsUser}}</h2>
-    <button routerLink="/customers" class="btn btn-sm btn-link">Customer</button>
-    <button routerLink="/products" class="btn btn-sm btn-link">Products</button>
+   <h2> Welcome {{greetingsUser}}</h2>
+   <div class="nav-Bar">
+       <button routerLink="/customers" class="btn btn-sm btn-link">Customer List</button>
+       <button routerLink="/products" class="btn btn-sm btn-link">Shop Items</button>
+   </div>
     <hr />
 
-    <h1 routerLink="/chat" style="color: blue;text-decoration: underline;cursor: pointer;">lets Chat</h1>
+    <h1 routerLink="/chat" style="color: blue;text-decoration: underline;cursor: pointer;">Open Chat Appn</h1>
 
-    <h1 routerLink="/store" style="cursor: pointer;">Go To Store....</h1>
-    <button routerLink="/store" style="cursor: pointer;">Go To Store....</button>
+    <h1 routerLink="/store" style="cursor: pointer;">Play with Store....</h1>
+    <!-- <button routerLink="/store" style="cursor: pointer;">Go To Store....</button> -->
 </div>
 
 

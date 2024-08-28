@@ -28,7 +28,7 @@ td {
   background-color: #fff;
   text-align: center;
   transition: transform 0.2s ease-in-out;
-  height: 295px;
+  height: 350px;
 }
 
 .product-Div:hover {
@@ -135,11 +135,28 @@ span {
 //   padding: 0px 14px;
 
 // }
-.action-Buttons {
-  display: flex;
-  justify-content: space-around;
-  padding: 0px 14px;
-}
+// .action-Buttons {
+//   display: flex;
+//   justify-content: space-around;
+//   padding: 0px 14px;
+//   div{
+//    .inc-btn{
+//       align-items: center;
+//       border-radius: 5px;
+//       background: #f9f9f9;
+//       color: green;
+//       text-align: center;
+//       display: flex;
+//       justify-content: space-evenly;
+//       border: 1px solid grey;
+//       width: 100px;
+//     }.inc-btn:hover{
+//         background: #4eb64e;
+//         color: white;
+//         border: 1px solid black;
+//     }
+//   }
+// }
 .empty-Cart{
   display: flex;
   align-items: center;
@@ -150,3 +167,48 @@ span {
     text-decoration: underline;
   }
 }
+.action-Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.action-Buttons div {
+  margin: 0 10px;
+}
+
+button {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  align-items: center;
+  display: flex;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #007bff;
+  color: #fff;
+
+}
+
+button:focus {
+  outline: none;
+}
+
+
+
+span.glyphicon {
+  margin-left: 5px;
+}
+
+span {
+  font-size: 16px;
+  font-weight: bold;
+}
+

@@ -18,41 +18,49 @@
     </tr>
    </tbody>
 </table> -->
-<div *ngIf="loopData.length">
+<app-loder (load)="loder($event)"></app-loder>  
+
+<ng-container *ngIf="!isLoader">
+  <div *ngIf="loopData.length">
     <div class="cartItems-Parent">
-        <ng-container *ngFor="let dtls of loopData; let indx = index">
-          <div class="product-Div">
-            <div class="close-Parent">
-                <span><i class="fa fa-close close-Icon" (click)="removeFromBag(dtls)"></i></span>
+      <ng-container *ngFor="let dtls of loopData; let indx = index">
+        <div class="product-Div">
+          <div class="close-Parent">
+            <span><i class="fa fa-close close-Icon" (click)="removeFromBag(dtls)"></i></span>
+          </div>
+          <div class="image-container">
+            <img [src]="dtls.image" alt="{{dtls.title}}">
+          </div>
+          <div class="info-container">
+            <span class="product-title">{{dtls.title}}</span>
+            <span class="product-price">{{dtls.price.toFixed(2)|currency}}</span>
+          </div>
+          <div class="action-Buttons">
+            <div>
+              <button class="inc-btn" (click)="increaseQuantity(dtls,indx)">Increase <span 
+                  class="glyphicon">&#xe081;</span> </button>
             </div>
-            <div class="image-container">
-              <img [src]="dtls.image" alt="{{dtls.title}}">
+            <div>
+              <span>{{dtls.quantity}}</span>
             </div>
-            <div class="info-container">
-              <span class="product-title">{{dtls.title}}</span>
-              <span class="product-price">{{dtls.price.toFixed(2)|currency}}</span>
-            </div>
-            <div class="action-Buttons">
-              <div>
-                <button (click)="increaseQuantity(dtls,indx)">Increase</button>
-              </div>
-              <div>
-                <span>{{dtls.quantity}}</span>
-              </div> <div>
-                <button (click)="decreaseQuantity(dtls,indx)">{{dtls.quantity>1?"Decrease":"Remove"}}</button>
-              </div>
+            <div>
+              <button *ngIf="dtls.quantity>1" (click)="decreaseQuantity(dtls,indx)">
+                Decrease <span class="glyphicon">&#xe082;</span>
+              </button>
+              <button *ngIf="dtls.quantity==1" (click)="removeFromBag(dtls)">
+                Remove <span class="glyphicon">&#xe014;</span>
+              </button>
             </div>
           </div>
-        </ng-container>
-      </div>
-      <div  class="cart-Actions" >
-        <button (click)="buy()">Buy now...</button>
-        <button>wishlist
-           <!-- <i class="fa fa-heart" style="font-size:35px;color:red"></i> -->
-        </button>
+        </div>
+      </ng-container>
     </div>
-</div>
-<div *ngIf="!loopData.length" class="empty-Cart">
-  <h3 >No items in the Cart</h3>
-
-</div>
+    <div class="cart-Actions">
+      <button (click)="buy()">Buy now...<span class="glyphicon">&#xe080;</span></button>
+      <button (click)="shop()">Shop <span class="glyphicon">&#xe095;</span></button>
+    </div>
+  </div>
+  <div *ngIf="!loopData.length" class="empty-Cart">
+    <h3>No items in the Cart</h3>
+  </div>
+</ng-container>

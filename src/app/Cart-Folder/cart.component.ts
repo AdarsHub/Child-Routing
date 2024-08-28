@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 export class CartComponent {
   details: any[] = [];
   loopData: any[] = [];
+  isLoader:any;
   constructor(private cartService: CartService, private router: Router) {
     const stData: any = localStorage.getItem('details');
     let parsedData: any;
@@ -88,6 +89,7 @@ export class CartComponent {
   //   this.router.navigate(['/products'])
   // }
   // ngAfterViewInit(){
+  //   console.log("Ng After View init...")
   //   // console.log("=====90");
   //   // console.log(this.loopData.length)
   //   if(!this.loopData.length){
@@ -97,16 +99,32 @@ export class CartComponent {
   // }
   test(){
     console.log("98======")
-    this.router.navigate(['products'])
+    this.router.navigate(['/products'])
   }
-  ngDoCheck(){
-    console.log("Do Check Triggered...")
-    if(!this.loopData.length){
-      console.log("Condition Satisfied....");
-      setTimeout(() => {   
-        this.router.navigate(['/products']);
-      }, 1500);
+  // ngDoCheck(){
+  //   console.log("Do Check Triggered...")
+  //   if(!this.loopData.length){
+  //     console.log("Condition Satisfied....");
+  //     setTimeout(() => {   
+  //       this.router.navigate(['/products']);
+  //     }, 1500);
 
+  //   }
+  // }
+  ngAfterViewChecked(){
+    console.log("View Has Checked...")
+    if(!this.loopData.length){
+      setTimeout(()=>{
+        this.test();
+      },1000)
     }
+  }
+  shop(){
+    this.router.navigate(['/products'])
+  }
+
+  loder(e){
+    console.log(e,"Data Received from the parent")
+    this.isLoader=e;
   }
 }

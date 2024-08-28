@@ -7,10 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular11-app';
-  isLoader=true;
-  ngOnInit(){
-    setTimeout(() => {
-      this.isLoader=false;
-    }, 1500);
+  isLoader:any;
+  loder(e){
+    console.log(e,"Data Received from the parent")
+    this.isLoader=e;
   }
 }
