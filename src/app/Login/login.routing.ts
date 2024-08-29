@@ -12,8 +12,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
-    declarations: [],
-    providers: []
+    exports: [RouterModule]
 })
 export class LoginRoutingModule {
 

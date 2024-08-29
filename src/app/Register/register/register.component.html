@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="parent">
+    <div class="container">
+        <h2 class="title">Register...</h2>
+        <p>{{registerForm.touched|json}}</p>
+        <form action="#" class="form-container" [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+            <div class="input-box name">
+                <input type="text" id="userName-input" required placeholder="Name" formControlName="name">
+                <img src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png" alt="user-image" width="25px">
+            </div>
+            <div class="user-warning">
+                <p *ngIf="registerForm.controls.name.invalid &&registerForm.controls.name.touched" > Name is Require.</p>
+            </div>
+            <div class="input-box email">
+                <input type="email" id="email-input" required placeholder="Email Adress" formControlName="email">
+                <!-- <img src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png" alt="user-image" width="25px"> -->
+                 
+            </div>
+            <div class="user-warning">
+                <p *ngIf="registerForm.controls.email.invalid &&registerForm.controls.email.touched" > Email is Require.</p>
+            </div>
+            <div class="input-box userName">
+                <input type="text" id="user-Name-input" required placeholder="User Name" formControlName="userName">
+                <!-- <img src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png" alt="user-image" width="25px"> -->
+            </div>
+            <div class="user-warning">
+                <p *ngIf="registerForm.controls.userName.invalid &&registerForm.controls.userName.touched" > userName is Require.</p>
+            </div>
+            <div class="input-box password" style="position: relative;">
+                <input [type]="showPswd?'text':'password'" id="password" required placeholder="password" formControlName="pswd">
+                <!-- <img src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png" alt="user-image" width="25px"> -->
+                <!-- <button type="button" id="btnToggle" class="toggle"><i id="eyeIcon" class="fa fa-eye"></i></button> -->
+                <span class="test" style="position: absolute;right: 22px;" >
+                    <i class="fa fa-eye test" style="color: white;font-size: 21px;" aria-hidden="true"
+                        *ngIf="!showPswd"  (click)="toggleVisibility()"
+                        ></i>
+                    <i class="fa fa-eye-slash test" style="color: white;font-size: 21px;" aria-hidden="true"
+                        *ngIf="showPswd"  (click)="toggleVisibility()"></i>
+                </span>
+
+            </div>
+            <div class="user-warning">
+                <p *ngIf="registerForm.controls.pswd.invalid &&registerForm.controls.pswd.touched" > password is Require.</p>
+            </div>
+            <div class="input-box conf-password">
+                <input [type]="confshowPswd?'text':'password'" id="conf-password-input" required placeholder="Confirm Password" formControlName="confpswd">
+                <!-- <img src="https://cdn-icons-png.flaticon.com/512/2489/2489659.png" alt="lock-image" width="22px"> -->
+                <span class="test" style="position: absolute;right: 22px;"
+                (mousedown)="confshowPswd = !confshowPswd" 
+                (mouseup)="confshowPswd = !confshowPswd" >
+                    <i class="fa fa-eye test" style="color: white;font-size: 21px;" aria-hidden="true"
+                        *ngIf="!confshowPswd" 
+                        ></i>
+                    <i class="fa fa-eye-slash test" style="color: white;font-size: 21px;" aria-hidden="true"
+                        *ngIf="confshowPswd"  ></i>
+                </span>
+            </div>
+            <div class="user-warning">
+                <p *ngIf="registerForm.controls.confpswd.invalid &&registerForm.controls.confpswd.touched" > Confirm Password is Require.</p>
+            </div>
+            <div class="password-Validator">
+                <p *ngIf="isSubmit && registerForm.value.pswd!=registerForm.value.confpswd">password and Confirm Passwprd must Be same...</p>
+            </div>
+            <div class="button">
+                <button class="login">Create</button>
+            </div>
+            <!-- <div class="register">
+                <p><a href="">need a help</a></p>
+            </div> -->
+        </form>
+    </div>
+</div>

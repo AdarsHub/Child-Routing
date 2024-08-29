@@ -17,6 +17,7 @@
   padding: 2rem;
   border-radius: 15px;
   max-width: 300px !important;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for better design */
 }
 
 .error-text {
@@ -31,6 +32,9 @@
   justify-content: center;
   align-items: center;
   margin: 0;
+  padding: 20px; /* Added padding to prevent the background from cutting off */
+  overflow: auto; /* Allow scrolling if content overflows */
+  background-size: cover; /* Ensures background covers the entire area */
 }
 
 .panel-Hints {
@@ -77,6 +81,7 @@
     position: absolute;
     right: 3px;
     bottom: 4px;
+    max-width: 20px; /* Adjusted size for better fit */
   }
 }
 
