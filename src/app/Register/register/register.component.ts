@@ -11,6 +11,7 @@ export class RegisterComponent implements OnInit {
   confshowPswd: boolean = false;
   registerForm: FormGroup;
   isSubmit:boolean=false;
+  isLoader:boolean=true;
   constructor(private formBuilder: FormBuilder
   ) {
     this.registerForm = this.formBuilder.group({
@@ -30,10 +31,14 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.isSubmit=true;
     if (this.registerForm.valid) {
-      console.log(this.registerForm, "Form Submited...")
+      console.log(this.registerForm, "Form Submited...");
     } else {
-      alert("Please fill the all mandatory fields..")
+      alert("Please fill the all mandatory fields..");
     }
+  }
+  loder(e){
+    console.log(e,"Data Received from the parent")
+    this.isLoader=e;
   }
 
 }

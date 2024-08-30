@@ -26,21 +26,20 @@ export class ProductDetailsComponent {
 
     constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private figletService: FigletServieService,
         private userService: UserService, private cartService: CartService) {
-        console.log("%cHello, " + "World", "color:white;background-color:cornflowerblue;");
+        // console.log("%cHello, " + "World", "color:white;background-color:cornflowerblue;");
         this.route.params.subscribe((param: any) => {
-            console.log(param, 'Params')
+            // console.log(param, 'Params')
             this.param_Id = param.id;
             const navigation = this.router.getCurrentNavigation();
-            console.log(navigation, "Navigation....");
+            // console.log(navigation, "Navigation....");
             const data = navigation?.extras.state?.data;
-            console.log(data, "State Data ")
+            // console.log(data, "State Data ")
             // setTimeout(() => {
             //     this.getProduct(this.param_Id)
             // }, 1000);
 
         })
         this.http.get('https://fakestoreapi.com/products').subscribe((res: any) => {
-            console.log(res, "111")
             this.products = res;
             this.getProduct(this.param_Id)
             // })
@@ -50,7 +49,7 @@ export class ProductDetailsComponent {
             //     this.getProduct(this.param_Id)
         })
         this.userService.productList.subscribe((res) => {
-            console.log(res, "line 37");
+            // console.log(res, "line 37");
             // this.products= JSON.parse(JSON.stringify(res?.products));
             this.products = res.products;
             this.getProduct(this.param_Id)
@@ -81,6 +80,7 @@ export class ProductDetailsComponent {
 
     getProduct(id: any) {
         this.checkProduct = JSON.parse(localStorage.getItem("details"));
+        console.log("===84",this.checkProduct)
         this.products?.forEach((val: any) => {
             if (val.id == this.param_Id) {
                 this.selectedProduct = val;
@@ -93,8 +93,9 @@ export class ProductDetailsComponent {
                 // console.log(this.selectedProduct, 'The Product u have selected...')
             }
         })
+        console.log("Pr Select",this.productSelected)
     }
-    testClose() {
+    gotoShop() {
         this.router.navigate(['/products'])
     }
     addToBag(prod: any) {
@@ -110,7 +111,7 @@ export class ProductDetailsComponent {
         this.router.navigate(['/cart'])
     }
     loder(e){
-        console.log(e,"Data Received from the parent")
+        // console.log(e,"Data Received from the parent")
         this.isLoader=e;
       }
 }

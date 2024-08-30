@@ -43,8 +43,8 @@
       <p>Item Added to Cart</p>
     </div>
   
-    <div class="action-section">
-      <ng-container *ngIf="!addedCart">
+    <div class="action-section" *ngIf="!productSelected">
+      <ng-container *ngIf="!addedCart" >
         <button mat-button color="primary" (click)="addToBag(selectedProduct)">
           Add To Bag   <span class="glyphicon">&#xe116;</span>
         </button>
@@ -52,11 +52,11 @@
    
       <ng-container *ngIf="productSelected">
         <button mat-button color="primary" (click)="goToCart(selectedProduct)">
-          Go To Cart
+       Check in cart
          </button>
       </ng-container>
      
-      <button *ngIf="!addedCart" mat-button color="warn" (click)="testClose()">
+      <button *ngIf="!addedCart" mat-button color="warn" (click)="gotoShop()">
         Back To Products
       </button>
 

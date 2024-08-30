@@ -8,8 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular11-app';
   isLoader:any;
-  loder(e){
-    console.log(e,"Data Received from the parent")
+  loder(e:any){
     this.isLoader=e;
   }
 }

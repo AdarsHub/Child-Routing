@@ -13,7 +13,7 @@ import { futureSelector } from "./Store/effects";
     providers: [],
     imports: [StoreManageRoutingModule,
         // StoreModule.forRoot({ count: CounterReducer,testApi:ApiCallData,products:ProductsDataReducer }),
-        // EffectsModule.forRoot([futureSelector])
+        // EffectsModule.forRoot([futureSelector]),
     ]
 })
 export class StoreManagerModule { }
