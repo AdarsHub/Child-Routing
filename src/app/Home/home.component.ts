@@ -8,14 +8,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   greetingsUser:any;
-  isLoader:any;
+  isLoader:boolean=true;
   
   constructor(private router:Router) {
+    
     const data=this.router.getCurrentNavigation();
+    console.log(data,"data...111")
     this.greetingsUser=data?.extras?.state?.data.userName;
     console.log(data?.extras?.state?.data,"111")
    }
 
+   
   ngOnInit(): void {
     console.log("Home...")
   }

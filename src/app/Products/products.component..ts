@@ -22,6 +22,7 @@ export class ProductsComponent {
     constructor(private httpClient: HttpClient, private router: Router, private store: Store, private userService: UserService) { }
 
     ngOnInit() {
+        console.log("Loaded...111")
         this.remDuplicates();
         console.log(typeof (this.testStr), "string====", typeof (this.testStr2), "String===")
         this.button();
@@ -29,6 +30,7 @@ export class ProductsComponent {
         this.httpClient
             .get('https://fakestoreapi.com/products')
             .subscribe((res) => {
+                console.log(res,"Response... 111")
                 this.productData = res;
                 // Initialize addedCart property for each product
                 this.productData.forEach((product:any) => {

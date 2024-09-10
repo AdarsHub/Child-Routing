@@ -1,4 +1,7 @@
-<div class="main-Parent">
+<app-loder (load)="loder($event)"></app-loder>
+<app-modal #modal [message]="message" [status]="status"></app-modal>
+
+<div *ngIf="!isLoader" class="main-Parent">
   <div class="container d-flex justify-content-center align-items-center">
     <div class="card shadow-lg p-4"
       style="max-width: 400px; width: 100%; background-color: rgba(255, 255, 255, 0.9); border-radius: 15px;">
@@ -8,11 +11,11 @@
           <label for="name">User_Name</label>
           <input type="text" id="name" class="form-control" formControlName="userName" placeholder="Enter your name" />
           <img src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png" alt="user-image" width="25px">
-          <div *ngIf="userForm.get('userName')?.invalid" class="text-danger error-text">
-            <span *ngIf="userForm.get('userName')?.invalid && userForm.get('userName')?.touched">
-              Name is required
-            </span>
-          </div>
+        </div>
+        <div *ngIf="userForm.get('userName')?.invalid" class="text-danger error-text">
+          <span *ngIf="userForm.get('userName')?.invalid && userForm.get('userName')?.touched">
+            Name is required
+          </span>
         </div>
         <div class="form-group mb-3 input-box">
           <label for="password">Password</label>

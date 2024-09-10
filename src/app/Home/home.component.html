@@ -1,5 +1,6 @@
+<app-loder (load)="loder($event)"></app-loder>
 
-<div class="container">
+<div *ngIf="!isLoader" class="container">
    <h2> Welcome {{greetingsUser}}</h2>
    <div class="nav-Bar">
        <button routerLink="/customers" class="btn btn-sm btn-link">Customer List</button>

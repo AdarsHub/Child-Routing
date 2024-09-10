@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { ProductDetailsComponent } from './Product-Details/product-details.compo
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { LoderModule } from './loder/loder.module';
+import { ModalModule } from './Modal/modal.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { LoderModule } from './loder/loder.module';
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Add this if needed
 })
 export class AppModule { }

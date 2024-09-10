@@ -37,18 +37,6 @@
   background-size: cover; /* Ensures background covers the entire area */
 }
 
-.panel-Hints {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  gap: 6px;
-  justify-content: start;
-
-  span {
-    font-size: 14px;
-  }
-}
-
 .frgt-pwd {
   display: flex;
   justify-content: end;
@@ -58,7 +46,21 @@
 .remember-forgot {
   display: flex;
   justify-content: space-between;
+.panel-Hints{
+  display: flex;
+  // align-items: center;
+  padding: 5px;
+  gap: 6px;
+  justify-content: start;
 
+  span {
+    font-size: 14px;
+  }
+  #remember{
+    width: 15px;
+    height: 15px;
+  }
+}
 }
 
 .register p {
@@ -80,7 +82,7 @@
   img{
     position: absolute;
     right: 3px;
-    bottom: 4px;
+    bottom: 7px;
     max-width: 20px; /* Adjusted size for better fit */
   }
 }

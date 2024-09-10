@@ -1,0 +1,15 @@
+<!-- <div #myModal class="container">
+    <div class="content">
+      <p>Some content here...</p>
+      <button (click)="close()">Close</button>
+    </div>
+    </div> -->
+<div #myModal class="modal-overlay" (click)="onCloseOverlay($event)">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <ng-content>
+        </ng-content> <!-- Content from parent component -->
+        <p [ngClass]="status=='success'?'success':'danger'">{{message}}</p>
+        <button  (click)="close()">close</button>
+         <span class="counter" >{{counter}}</span>
+    </div> 
+</div>
