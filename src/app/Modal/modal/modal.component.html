@@ -9,7 +9,7 @@
         <ng-content>
         </ng-content> <!-- Content from parent component -->
         <p [ngClass]="status=='success'?'success':'danger'">{{message}}</p>
-        <button  (click)="close()">close</button>
-         <span class="counter" >{{counter}}</span>
+        <button *ngIf="status !='success'"  (click)="close()">close</button>
+         <span *ngIf="status=='success'&&counter>0" class="counter" >{{counter}}</span>
     </div> 
 </div>

@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { LoderModule } from './loder/loder.module';
 import { ModalModule } from './Modal/modal.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { ModalModule } from './Modal/modal.module';
     EffectsModule.forRoot([futureSelector]),
     ReactiveFormsModule,
     MatFormFieldModule,
-    LoderModule
+    LoderModule,
+    BrowserAnimationsModule
     
   ],
   providers: [],

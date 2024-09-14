@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   userForm: FormGroup;
   isLoader: boolean = true;
   @ViewChild('modal', { static: false }) modal: ModalComponent
+  intervelId:any;
+  counter:number=3;
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.userForm = this.fb.group({
@@ -58,9 +60,16 @@ export class LoginComponent implements OnInit {
       if (login) {
         this.message = "Login Succefull"
         this.status = 'success';
+        this.counter=3;
+        this.startTimer();
+        if(this.counter==0){
+       
+        }
+       
       } else {
         this.message = "Incorrect Details...";
         this.status = "danger";
+       
       }
     }
     this.openModal();
@@ -71,5 +80,22 @@ export class LoginComponent implements OnInit {
   ngAfterViewInit() {
     // Ensure this.modal is available
     console.log(this.modal);
+  }
+  startTimer() {
+    this.intervelId = setInterval(() => {
+      this.counter--;
+      if (this.counter <= 0) {
+        clearInterval(this.intervelId)
+        this.counter = 0;
+        this.router.navigate(['/Home',],
+          {
+            // skipLocationChange: true,
+         queryParams:{"userName": this.userForm.value.userName},
+            state: { data:  this.userForm.value },
+            replaceUrl: true
+          }
+        )
+      }
+    }, 1000)
   }
 }

@@ -12,7 +12,7 @@
       </tr>
       <tr *ngFor="let item of customerList">
         <td>{{item.id}}</td>
-        <td><a [routerLink]="[item.id ,'pr-details']">{{item.name}}</a></td>
+        <td><a [routerLink]="[item.id ,'customer-Details']">{{item.name}}</a></td>
         <td>{{item.city}}</td>
         <td>{{item.country}}</td>
         <td>{{item.zipcode}}</td>

@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { CartService } from "../Services/Cart-Service/cart.service";
 import { Router } from "@angular/router";
+import { AddAddressComponent } from "./Add Address/addAdress.component";
 
 
 @Component({
@@ -12,6 +13,7 @@ export class CartComponent {
   details: any[] = [];
   loopData: any[] = [];
   isLoader:any;
+  @ViewChild('modal', { static: false }) modal: AddAddressComponent
   constructor(private cartService: CartService, private router: Router) {
     const stData: any = localStorage.getItem('details');
     let parsedData: any;
@@ -54,7 +56,10 @@ export class CartComponent {
     console.log(this.loopData, "items ===60")
   }
   buy() {
-    this.router.navigate(['cart/purchase']);
+  this.modal.open();
+  console.log(this.modal);
+    // this.router.navigate(['cart/purchase']);
+    
   }
   decreaseQuantity(eve:any,ind?:number){
     if(eve.quantity>1){

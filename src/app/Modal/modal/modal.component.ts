@@ -8,8 +8,9 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 export class ModalComponent implements OnInit {
 @Input() message:any;
 @Input() status:any;
-counter:number=3;
-intervelId:any;
+@Input() counter:any;
+// counter:number=3;
+// intervelId:any;
   constructor() { }
 
   ngOnInit(): void {
@@ -20,8 +21,8 @@ intervelId:any;
     if(this.modal){
       // this.modal.nativeElement.style.display = 'block';
       this.modal.nativeElement.style.display = 'flex';
-      this.counter=3;
-      this.startTimer();
+      // this.counter=3;
+      // this.startTimer();
       console.log(this.modal,"modal Avlble")
     }else{
       console.log(this.modal,"Modal not available...")
@@ -34,14 +35,14 @@ intervelId:any;
   close(){
     this.modal.nativeElement.style.display = 'none';
   }
-  startTimer(){
-this.intervelId=setInterval(()=>{
-  this.counter--;
-  if(this.counter<=0){
-    clearInterval(this.intervelId)
-    this.counter=0;
-  }
-},1000)
-  }
+//   startTimer(){
+// this.intervelId=setInterval(()=>{
+//   this.counter--;
+//   if(this.counter<=0){
+//     clearInterval(this.intervelId)
+//     this.counter=0;
+//   }
+// },1000)
+//   }
  
 }

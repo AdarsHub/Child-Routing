@@ -1,7 +1,18 @@
-<button routerLink="/">Home</button>
-<h1 (click)="navTo('offers')" style="color: blue; text-decoration: underline;cursor: pointer;">
+<!-- <h1 style="color: blue; text-decoration: underline;cursor: pointer;">
   Go to Offers...
-</h1>
+</h1> -->
+<div class="container">
+  <button routerLink="/Home" class="btn btn-sm btn-link">
+    Home
+  </button> 
+  <button  (click)="navTo('offers')" class="btn btn-sm btn-link" >
+    Go to Sale
+  </button>
+  <button routerLink="/cart" class="btn btn-sm btn-link">
+   Cart Items... <i class="fa fa-shopping-cart"></i>
+  </button>
+</div>
+<hr>
 <div class="side-By">
   <div class="main-Div" *ngFor="let data of productData; let i = index">
     <div class="product">
